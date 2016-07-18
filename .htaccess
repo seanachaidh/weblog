@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteRule ^(.*)$ ./%{REMOTE_HOST}/public/$1 [L,QSA]
+</IfModule>
