@@ -13,7 +13,9 @@ class BerichtenForeign extends Migration
     public function up()
     {
         Schema::table('berichten', function($table) {
-        
+	  
+	  DB::statement("alter table berichten modify column date DATE");
+	  
 	  $table->integer("next_id")->unsigned();
 	  $table->integer("previous_id")->unsigned();
 	  
@@ -30,11 +32,13 @@ class BerichtenForeign extends Migration
     public function down()
     {
         Schema::table("berichten", function($table) {
-	  $table->dropForeign("next_id");
-	  $table->dropForeign("previous_id");
+	  $table->dropForeign(["next_id"]);
+	  $table->dropForeign(["previous_id"]);
 	  
 	  $table->dropColumn("next_id");
 	  $table->dropColumn("previous_id");
+	  
+	  DB::statement("alter table berichten modify column date TIMESTAMP");
 	  
         });
     }
