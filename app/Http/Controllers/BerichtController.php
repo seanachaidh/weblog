@@ -42,8 +42,8 @@ class BerichtController extends Controller
         $tmp->title = $request->input("title");
         $tmp->text = $request->input("text");
         $tmp->date = $request->input("date");
-        $tmp->next = $request->input("next");
-        $tmp->previous = $request->input("previous");
+        $tmp->next_id = $request->input("next");
+        $tmp->previous_id = $request->input("previous");
         
         $tmp->save();
         
@@ -83,7 +83,22 @@ class BerichtController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bericht = Bericht::find($id);
+        if($request->has('name')) {
+	  $bericht->name = $request->name;
+	}
+	if($request->has('title')) {
+	  $bericht->title = $request->title;
+	}
+        if($request->has('date')) {
+	  $bericht->date = $request->date;
+	}
+        if($request->has('next')) {
+	  $bericht->next_id = $request->next;
+	}
+        if($request->has('previous')) {
+	  $bericht->pevious_id = $request->prevous;
+	}
     }
 
     /**
@@ -94,6 +109,7 @@ class BerichtController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $b = Bericht::find($id);
+        $b->delete();
     }
 }
