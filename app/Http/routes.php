@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('bericht', 'BerichtController');
+Route::controller('auth', 'AuthController');
