@@ -21,9 +21,9 @@ class AuthController extends Controller
 		$retval = Auth::attempt(['email' => $uname, 'password' => $pass]);
       
 		if($retval) {
-			return response()->json(['success' => TRUE]);
+			return response()->json(['success' => 'true']);
 		} else {
-			return response()->json(['success' => FALSE]);
+			return response()->json(['success' => 'false']);
 		}
 	}
     
