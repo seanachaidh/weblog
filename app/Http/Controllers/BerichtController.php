@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Bericht;
+use DB;
+
 class BerichtController extends Controller
 {
 
@@ -69,7 +72,7 @@ class BerichtController extends Controller
         $retval = $tmp->save();
         
         //TODO Hier een gepaste waarde teruggeven
-        return response()->json(["created" => $retval]);
+        return response()->json(["created" => var_export($retval, TRUE)]);
     }
 
     /**

@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TestAuth extends TestCase
 {
+	use DatabaseMigrations;
+	
 	public function testLogin()
 	{
 		$this->json('POST', '/auth/login', ['email' => 'pvankeymeulen@seanachaidh.be',
@@ -18,10 +20,16 @@ class TestAuth extends TestCase
 		$data = [
 			'title' => 'testbericht',
 			'text' => 'Mi estas Pedro',
-			'date' => getdate()->format("Y-m-d")];
-		$this->json('POST', '/bericht', $data)
+			'date' => date("Y-m-d")];
+			
+			
+		$user = factory(App\User::class)->create();
+		
+		$this->actingAs($user)->json('POST', '/bericht', $data)
 			->seeJsonEquals(['created' => 'true']);
 		
-			
+		$this->actingAs($user)->json('GET', '/bericht', ['first' => 'true'])
+				->seeJson(['title' => 'testbericht']);
+		
 	}
 }
