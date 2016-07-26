@@ -16,6 +16,12 @@ class TestAuth extends TestCase
 	public function testGetMessage() {
 		//Dit is een test van writemessege en getmessage in een keer
 		$data = [
+			'title' => 'testbericht',
+			'text' => 'Mi estas Pedro',
+			'date' => getdate()->format("Y-m-d")];
+		$this->json('POST', '/bericht', $data)
+			->seeJsonEquals(['created' => 'true']);
+		
 			
 	}
 }
