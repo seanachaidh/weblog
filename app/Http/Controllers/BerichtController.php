@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Bericht;
+
+//Facades
 use DB;
+use Auth;
 
 class BerichtController extends Controller
 {
 
 	public function __construct() {
-		$this->middleware('auth');
 	}
 
     /**
@@ -52,6 +54,12 @@ class BerichtController extends Controller
      */
     public function store(Request $request)
     {
+		
+		//Eerst inloggen
+		if(!Auth::check()) {
+			return response('Unauthorized', 401);
+		}
+		
         $tmp = new Bericht;
         if($request->has('title')) {
 			$tmp->title = $request->input('title');
@@ -107,6 +115,12 @@ class BerichtController extends Controller
      */
     public function update(Request $request, $id)
     {
+		
+		//Eerst inloggen
+		if(!Auth::check()) {
+			return response('Unauthorized', 401);
+		}
+		
 		$bericht = Bericht::find($id);
 		if($request->has('name')) {
 			$bericht->name = $request->name;
@@ -136,6 +150,11 @@ class BerichtController extends Controller
      */
     public function destroy($id)
     {
+		//Eerst inloggen
+		if(!Auth::check()) {
+			return response('Unauthorized', 401);
+		}
+		
         $b = Bericht::find($id);
         $b->delete();
     }
