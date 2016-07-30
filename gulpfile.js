@@ -12,5 +12,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+	//Voorlopig nog geens stijlen
+    //mix.sass('app.scss');
+	
+	//Ik heb cafeïne nodig
+	mix.coffee('main.coffee', 'public/javascript');
 });
