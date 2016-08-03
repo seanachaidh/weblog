@@ -1,0 +1,2 @@
+-- Gulp watch gaat niet onmiddelijk de bronnen compileren
+	-> Draai hiervoor eerst gulp op de gewone manier!

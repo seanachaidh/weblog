@@ -1,6 +1,11 @@
-app = angular.module 'app', ['ngRoute', 'ngResource']
+#De bootstrap
 
-#mogelijkheid om op te splitsen in meerdere modules
-app.factory 'Bericht', ['$resource', ($resource) ->
-						return
-					]
+bootstrap = ng.platformBrowserDynamic.bootstrap
+
+start = (app) ->
+	bootstrap app.AppComponent
+
+start app.window || window = {}
+
+
+

@@ -4,8 +4,24 @@
 	
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles/mainstyle.css" />
+		
 		<script type="text/javascript" src="javascript/jquery.js"></script>
-		<script type="text/javascript" src="javascript/mainscript.js"></script>
+		
+		<!-- De angular modules -->
+		<script src="javascript/angular/shim.min.js"></script>
+
+		<script src="javascript/angular/zone.js"></script>
+		<script src="javascript/angular/Reflect.js"></script>
+
+		<script src="javascript/angular/Rx.umd.js"></script>
+		<script src="javascript/angular/core.umd.js"></script>
+		<script src="javascript/angular/common.umd.js"></script>
+		<script src="javascript/angular/compiler.umd.js"></script>
+		<script src="javascript/angular/platform-browser.umd.js"></script>
+		<script src="javascript/angular/platform-browser-dynamic.umd.js"></script>
+
+		<!-- Ons eigen script -->
+		<script type="text/javascript" src="javascript/app.js"></script>
 	</head>
 	
 	<body>
