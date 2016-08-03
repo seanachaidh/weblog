@@ -8,11 +8,17 @@ class AppComponent extends Component
 				selector: 'my-app',
 				template: '<h2> Dit is een test </h2>'
 		]
+	
+	#dependency injection
+	this.parameters = [
+		app.DataService #is app hier al zichtbaar?
+		]
+	
 	#De constructor van ons component
-	constructor: () -> return
+	constructor: (berichtService) -> return
 
 #De klasse exporteren
 exports = (app) ->
 	app.AppComponent = AppComponent
 
-exports window.app || window = {}
+exports window.app || window.app = {}

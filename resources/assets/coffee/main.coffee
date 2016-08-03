@@ -3,9 +3,14 @@
 bootstrap = ng.platformBrowserDynamic.bootstrap
 
 start = (app) ->
-	bootstrap app.AppComponent
+	$ document
+		.ready () -> 
+			bootstrap app.AppComponent
+			return
+	return
+		
 
-start app.window || window = {}
+start window.app || window.app = {}
 
 
 
