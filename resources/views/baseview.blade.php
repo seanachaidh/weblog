@@ -19,6 +19,7 @@
 		<script src="javascript/angular/compiler.umd.js"></script>
 		<script src="javascript/angular/platform-browser.umd.js"></script>
 		<script src="javascript/angular/platform-browser-dynamic.umd.js"></script>
+		<script src="javascript/angular/http.umd.js"></script>
 
 		<!-- Ons eigen script -->
 		<script type="text/javascript" src="javascript/app.js"></script>

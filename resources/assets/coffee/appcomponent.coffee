@@ -6,16 +6,22 @@ class AppComponent extends Component
 	this.annotations = [
 		new Component
 				selector: 'my-app',
-				template: '<h2> Dit is een test </h2>'
+				providers: [app.BerichtService] #Ook heel belangrijk.
+				template: '<h2> Dit is een test: {{name}} </h2>'
 		]
 	
 	#dependency injection
 	this.parameters = [
-		app.DataService #is app hier al zichtbaar?
+		app.BerichtService #is app hier al zichtbaar?
 		]
 	
 	#De constructor van ons component
-	constructor: (berichtService) -> return
+	constructor: (berichtService) ->
+		this.berichtService = berichtService
+		return
+	ngOnInit: () ->
+		this.name = this.berichtService.getBericht()
+		return
 
 #De klasse exporteren
 exports = (app) ->

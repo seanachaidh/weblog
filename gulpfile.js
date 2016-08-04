@@ -26,7 +26,8 @@ gulp.task('copy:libs', [], function() {
 		'node_modules/@angular/compiler/bundles/compiler.umd.js',
 		'node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
 		'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-		'node_modules/zone.js/dist/zone.min.js'
+		'node_modules/zone.js/dist/zone.min.js',
+		'node_modules/@angular/http/bundles/http.umd.js'
 	]).pipe(gulp.dest('public/javascript/angular'))
 });
 
