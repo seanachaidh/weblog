@@ -6,18 +6,40 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Auth;
+use Log;
+use Illuminate\Support\Facades\Input;
+
+//TODO: Betere documentatie maken.
 
 class AuthController extends Controller
 {
 
 	public function getLogin(Request $request) {
-		return 'Dit is een test';
+		Log::info('het verkrijgen van een user');
+		if(Auth::check()) {
+			$user = Auth::user();
+			return response()->json($user); //Klopt dit?
+		} else {
+			return response()->json(['success' => 'false']);
+		}
+	}
+	
+	public function getLogout(Request $request) {
+		Auth::logout();
 	}
     
 	public function postLogin(Request $request) {
+		Log::info('Het inloggen van een gebruiker');
+		
+		Log::info('var dump');
+		//var_dump($request);
+		
 		$uname = $request->input('email');
 		$pass = $request->input('password');
-      
+		
+		Log::info('email: ' . $uname);
+		Log::info('pass: ' . $pass); 
+		
 		$retval = Auth::attempt(['email' => $uname, 'password' => $pass]);
       
 		if($retval) {

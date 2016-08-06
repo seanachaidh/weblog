@@ -1,5 +1,6 @@
 #Imports
 Http = ng.http.Http
+Headers = ng.http.Headers
 toPromise = Rx.Observable.toPromise #Ik denk dat dit werkt
 
 #onze berichtservice
@@ -12,7 +13,18 @@ class BerichtService
 		this.http = http
 		return
 	
-	getBerichten: () -> return "Testing"
+	handleError: (error) ->
+		console.error "Error bij berichten: ", error
+		return
+	
+	
+	getBerichten: () ->
+		#krijg alle berichten
+		this.http.get(this.baseUrl)
+			.toPromise()
+			.then (response) ->
+				return response.json().data
+			.catch this.handleError
 
 exports = (app) ->
 	app.BerichtService = BerichtService
