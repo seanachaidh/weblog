@@ -36,5 +36,6 @@ elixir(function(mix) {
     mix.sass('app.scss', 'public/styles');
 	
 	//Ik heb cafeïne nodig
-	mix.coffee(['loginservice.coffee', 'berichtservice.coffee', 'appcomponent.coffee', 'main.coffee'], 'public/javascript');
+	mix.coffee(['loginservice.coffee', 'berichtservice.coffee', 'berichtcomponent.coffee',
+				'appcomponent.coffee', 'berichtform.coffee', 'main.coffee'], 'public/javascript');
 });

@@ -17,9 +17,9 @@ class BerichtService
 		console.error "Error bij berichten: ", error
 		return
 	
-	getBerichten: (first) ->
+	getBerichten: (last) ->
 		#krijg alle berichten
-		this.http.get("bericht/?first=" + first) #Om te beslissen of het al dan niet de eerste moet zijn.
+		this.http.get("bericht/?first=" + last) #Om te beslissen of het al dan niet de laatste moet zijn.
 			.toPromise()
 			.then (response) ->
 				return response.json().data

@@ -31,7 +31,7 @@ class BerichtController extends Controller
 			//zoek de eerste. Dit wil zeggen er is geen vorige, gezien de eerste altijd aan kop staat.
 			$first = DB::table('berichten')->whereNull('previous_id')->get();
 			return response()->json($first);
-		else if ($request->('last') && $request->last == 'true') {
+		} else if ($request->('last') && $request->last == 'true') {
 			$last = DB::table('berichten')->whereNull('next_id')->get();
 			return response()->json($last);
 		} else {
@@ -48,7 +48,7 @@ class BerichtController extends Controller
      */
     public function create()
     {
-        //
+        //Hier misschien nog een response geven
     }
 
     /**
@@ -75,14 +75,19 @@ class BerichtController extends Controller
         if($request->has('date')) {
 			$tmp->date = $request->input('date');
 		}
-        if($request->has('next_id')) {
-			$tmp->next_id = $request->input('next_id');
-		}
-        if($request->has('previous_id')) {
-			$tmp->previous_id = $request->input('previous_id');
-		}
+		
+		$last = DB::table('berichten')->whereNull('next_id');
+		
+		//Gelinkte lijst opstellen
+		$tmp->previous_id = $last->id;
+		$tmp->next_id = NULL;
 		
         $retval = $tmp->save();
+        
+        //Blijkbaar past Laravel onmiddellijk het id aan.
+        $last->next_id = $tmp->id;
+        
+        $last->save();
         
         //TODO Hier een gepaste waarde teruggeven
         return response()->json(["created" => var_export($retval, TRUE)]);
