@@ -25,9 +25,9 @@ class AppComponent extends Component
 		retval = this.loginService.loginUser "pvankeymeulen@seanachaidh.be", "12345"
 		
 		if retval.success = 'true'
-			this.name = "jipee"
+			this.bericht = this.berichtService.getBerichten true
 		else
-			this.name= "o jeejtje"
+			this.bericht = "loginfout"
 		return
 
 #De klasse exporteren
