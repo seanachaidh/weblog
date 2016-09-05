@@ -17,14 +17,21 @@ class BerichtService
 		console.error "Error bij berichten: ", error
 		return
 	
-	
-	getBerichten: () ->
+	getBerichten: (first) ->
 		#krijg alle berichten
-		this.http.get(this.baseUrl)
+		this.http.get("bericht/?first=" + first) #Om te beslissen of het al dan niet de eerste moet zijn.
 			.toPromise()
 			.then (response) ->
 				return response.json().data
-			.catch this.handleError
+			
+	
+	writeBericht: (bericht) ->
+		#Schrijf een bericht naar de databank
+		data
+			
+		
+		this.http.post('bericht')
+			.toPromise
 
 exports = (app) ->
 	app.BerichtService = BerichtService

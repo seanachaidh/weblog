@@ -19,8 +19,8 @@ class LoginService
 	loginUser: (name, pass) ->
 		#Een json object maken van datgene wat we willen opsturen
 		data = 
-			email: 'pvankeymeulen@seanachaidh.be',
-			password: '12345'
+			email: name,
+			password: pass
 		stringdata = JSON.stringify data
 		console.log "We versturen : " + data
 		this.http
