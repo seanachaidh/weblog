@@ -26,6 +26,7 @@ class AuthController extends Controller
 	
 	public function getLogout(Request $request) {
 		Auth::logout();
+		return response()->json(['success' => 'true']);
 	}
     
 	public function postLogin(Request $request) {

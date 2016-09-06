@@ -32,7 +32,12 @@ class LoginService
 				response.json().data
 	
 	logoutUser: () ->
-		return
+		#Een logout
+		this.http
+			.get 'auth/logout', {}, headers: this.headers
+			.toPromise()
+			.then (response) ->
+				response.json().data
 	
 	handleError: (error) ->
 		console.error "Error bij inloggen", error

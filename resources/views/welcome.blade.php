@@ -10,7 +10,4 @@
 		</my-app>
 	</div>
 
-<!--	<script type="text/javascript">
-		window.setInterval(imageCycle, 5000);
-	</script>-->
 @endsection

@@ -5,8 +5,6 @@ class Bericht
 		this.date = date
 		this.title = title
 		this.text = text
-		
-		return
 
 class BerichtForm extends Component
 	this.annotations = [

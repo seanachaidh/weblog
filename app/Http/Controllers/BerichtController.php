@@ -31,7 +31,7 @@ class BerichtController extends Controller
 			//zoek de eerste. Dit wil zeggen er is geen vorige, gezien de eerste altijd aan kop staat.
 			$first = DB::table('berichten')->whereNull('previous_id')->get();
 			return response()->json($first);
-		} else if ($request->('last') && $request->last == 'true') {
+		} else if ($request->has('last') && $request->last == 'true') {
 			$last = DB::table('berichten')->whereNull('next_id')->get();
 			return response()->json($last);
 		} else {

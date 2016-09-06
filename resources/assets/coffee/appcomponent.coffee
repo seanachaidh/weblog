@@ -6,8 +6,8 @@ class AppComponent extends Component
 	this.annotations = [
 		new Component
 				selector: 'my-app',
-				providers: [app.BerichtService, app.LoginService] #Ook heel belangrijk.
-				template: '<h2> Dit is een test: {{name}} </h2>'
+				providers: [app.BerichtService, app.LoginService], #Ook heel belangrijk.
+				templateUrl: 'templates/main-template.html'
 		]
 	
 	#dependency injection
