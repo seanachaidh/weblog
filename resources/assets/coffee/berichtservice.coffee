@@ -9,6 +9,9 @@ class BerichtService
 	this.parameters = [Http] #Injectie
 	this.baseUrl = 'bericht'
 	
+	this.headers = new Headers
+			'Content-Type': 'application/json'
+	
 	constructor: (http) ->
 		this.http = http
 		return
@@ -23,15 +26,28 @@ class BerichtService
 			.toPromise()
 			.then (response) ->
 				return response.json().data
-			
+		
+	
+	getPrevious: (bericht) ->
+		id = bericht.previous_id
+		
+		this.http.get("bericht/" + id)
+			.toPromise()
+			.then (response) ->
+				return response.json().data
+	
+	getNext: (bericht) ->
+		id = bericht.next_id
+		
+		this.http.get('bericht/' + id)
+			.then (response) ->
+				return response.json().data
 	
 	writeBericht: (bericht) ->
-		#Schrijf een bericht naar de databank
-		data
-			
-		
-		this.http.post('bericht')
-			.toPromise
+		this.http.post('bericht', bericht, this.headers)
+			.toPromise()
+			.then(response) ->
+				return response.json().data
 
 exports = (app) ->
 	app.BerichtService = BerichtService

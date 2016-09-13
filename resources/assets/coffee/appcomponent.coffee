@@ -22,12 +22,6 @@ class AppComponent extends Component
 		this.berichtService = berichtService
 		return
 	ngOnInit: () ->
-		retval = this.loginService.loginUser "pvankeymeulen@seanachaidh.be", "12345"
-		
-		if retval.success = 'true'
-			this.bericht = this.berichtService.getBerichten true
-		else
-			this.bericht = "loginfout"
 		return
 
 #De klasse exporteren

@@ -16,8 +16,15 @@ class BerichtComponent extends Component
 	this.msg = null
 	
 	constructor: (berichtService) ->
+		#krijg het eerste bericht
 		this.msg = berichtService.getBerichten true
 		return
+	
+	onLeftClick: () ->
+		this.msg = berichtService.getPrevious(this.msg)
+	
+	onRightClick: () ->
+		this.msg = berichtService.getNext(this.msg)
 		
 exports = (app) ->
 	app.BerichtComponent = BerichtComponent

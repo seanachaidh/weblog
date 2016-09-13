@@ -5,7 +5,6 @@
 	<head>
 		<!-- Van oorsprong een Sass bestand -->
 		<link rel="stylesheet" type="text/css" href="styles/app.css" />
-		<link rel="stylesheet" type="text/css" href="styles/mainstyle.css" />
 		
 		<script type="text/javascript" src="javascript/jquery.js"></script>
 		

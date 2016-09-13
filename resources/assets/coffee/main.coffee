@@ -16,6 +16,8 @@ start = (app) ->
 
 start window.app || window.app = {}
 
+#Zo zou het meoten gaan in de nieuywe versie maar die werkt blijkbaar nog niet zo goed
+
 # platformBrowserDynamic = ng.platformBrowserDynamic.platformBrowserDynamic
 # AppModule = app.AppModule
 # 
