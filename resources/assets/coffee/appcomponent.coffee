@@ -1,11 +1,14 @@
 #imports van de angular modules
 Component = ng.core.Component
+BlogMsg = app.BerichtComponent
+
 
 #De klasse van ons component
 class AppComponent extends Component
 	this.annotations = [
 		new Component
 				selector: 'my-app',
+				directives: [BlogMsg],
 				providers: [app.BerichtService, app.LoginService], #Ook heel belangrijk.
 				templateUrl: 'templates/main-template.html'
 		]
