@@ -5,13 +5,14 @@
 		<span class="message-title">{{msg.title}}</span>
 	</div>
 	<div class="row" id="msg-area">
-		<div class="col-md-1 msgbutton" id="leftbutton">
-			<span class="glyphicon glyphicon-chevron-left" />
+		<div (click)="onLeftClick()" class="col-md-1 msgbutton" id="leftbutton">
+			<span class="glyphicon glyphicon-chevron-left"></span>
 		</div>
 		<div class="col-md-10" id="msgbody">
+			{{msg.text}}
 		</div>
-		<div class="col-md-1 msgbutton" id="rightbutton">
-			<span class="glyphicon glyphicon-chevron-right" />
+		<div (click)="onRightClick()" class="col-md-1 msgbutton" id="rightbutton">
+			<span class="glyphicon glyphicon-chevron-right"></span>
 		</div>
 	</div>
 </div>

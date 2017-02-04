@@ -1,5 +1,6 @@
 #imports van de angular modules
 Component = ng.core.Component
+BlogMsg = app.BerichtComponent
 
 #De klasse van ons component
 class AppComponent extends Component
@@ -7,6 +8,7 @@ class AppComponent extends Component
 		new Component
 				selector: 'my-app',
 				providers: [app.BerichtService, app.LoginService], #Ook heel belangrijk.
+				directives: [BlogMsg],
 				templateUrl: 'templates/main-template.html'
 		]
 	

@@ -21,10 +21,14 @@ class BerichtComponent extends Component
 		return
 	
 	onLeftClick: () ->
-		this.msg = berichtService.getPrevious(this.msg)
+		console.log("leftclick")
+		return
+		#this.msg = berichtService.getPrevious(this.msg)
 	
 	onRightClick: () ->
-		this.msg = berichtService.getNext(this.msg)
+		console.log('rightclick')
+		return
+		#this.msg = berichtService.getNext(this.msg)
 		
 exports = (app) ->
 	app.BerichtComponent = BerichtComponent
