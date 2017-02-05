@@ -76,7 +76,7 @@ class BerichtController extends Controller
 			$tmp->date = $request->input('date');
 		}
 		
-		$last = DB::table('berichten')->whereNull('next_id');
+		$last = DB::table('berichten')->whereNull('next_id')->first();
 		
 		//Gelinkte lijst opstellen
 		$tmp->previous_id = $last->id;

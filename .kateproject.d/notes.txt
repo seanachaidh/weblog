@@ -1,2 +1,4 @@
 -- Gulp watch gaat niet onmiddelijk de bronnen compileren
 	-> Draai hiervoor eerst gulp op de gewone manier!
+
+est-ce que c'est logique que j'utilise bootstrap 3.3.6, quand, pour sass j'utilise 3.3.0?
