@@ -29,10 +29,10 @@ class BerichtController extends Controller
 		
 		if($request->has('first') && $request->first == 'true') {
 			//zoek de eerste. Dit wil zeggen er is geen vorige, gezien de eerste altijd aan kop staat.
-			$first = DB::table('berichten')->whereNull('previous_id')->get();
+			$first = DB::table('berichten')->whereNull('previous_id')->first();
 			return response()->json($first);
 		} else if ($request->has('last') && $request->last == 'true') {
-			$last = DB::table('berichten')->whereNull('next_id')->get();
+			$last = DB::table('berichten')->whereNull('next_id')->first();
 			return response()->json($last);
 		} else {
 			//Geeft ze allemaal
@@ -168,4 +168,9 @@ class BerichtController extends Controller
         $b = Bericht::find($id);
         $b->delete();
     }
+    
+    public function showLast(Request $request) {
+		$last = DB::table('berichten')->whereNull('next_id')->first();
+		return view('messageview', ['data' => $last]);
+	}
 }

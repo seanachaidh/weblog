@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BerichtController@showLast');
 
 Route::resource('bericht', 'BerichtController');
 Route::controller('auth', 'AuthController');

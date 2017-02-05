@@ -2,9 +2,10 @@
 
 @section('content')
 	<div id="contentbox">
-		<my-app id="innerbox">
-				Loading...
-		</my-app>
+		<div id="innerbox">
+				<h1>Seanachaidh</h1>
+				@yield('currentview')
+		<div>
 	</div>
 
 @endsection
