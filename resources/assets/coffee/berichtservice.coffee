@@ -22,7 +22,7 @@ class BerichtService
 	
 	getBerichten: (last) ->
 		#krijg alle berichten
-		this.http.get("bericht/?last=" + last) #Om te beslissen of het al dan niet de laatste moet zijn.
+		this.http.get("bericht?last=" + last) #Om te beslissen of het al dan niet de laatste moet zijn.
 			.toPromise()
 			.then (response) ->
 				return response.json().data
